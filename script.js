@@ -239,24 +239,43 @@ document.addEventListener('DOMContentLoaded', () => {
     const settingsModal = document.getElementById('settings-modal');
     const closeSettings = document.getElementById('close-settings');
 
-    hamburgerMenu.addEventListener('click', () => {
-        settingsModal.classList.add('active');
-    });
+    // Debug: Check if elements are found
+    console.log('Hamburger menu found:', hamburgerMenu);
+    console.log('Settings modal found:', settingsModal);
+    console.log('Close button found:', closeSettings);
 
-    closeSettings.addEventListener('click', () => {
-        settingsModal.classList.remove('active');
-    });
+    if (hamburgerMenu) {
+        hamburgerMenu.addEventListener('click', () => {
+            console.log('Hamburger menu clicked!');
+            settingsModal.classList.add('active');
+        });
+    } else {
+        console.error('Hamburger menu not found!');
+    }
+
+    if (closeSettings) {
+        closeSettings.addEventListener('click', () => {
+            console.log('Close button clicked!');
+            settingsModal.classList.remove('active');
+        });
+    } else {
+        console.error('Close button not found!');
+    }
 
     // Close modal when clicking outside
-    settingsModal.addEventListener('click', (e) => {
-        if (e.target === settingsModal) {
-            settingsModal.classList.remove('active');
-        }
-    });
+    if (settingsModal) {
+        settingsModal.addEventListener('click', (e) => {
+            if (e.target === settingsModal) {
+                console.log('Clicked outside modal!');
+                settingsModal.classList.remove('active');
+            }
+        });
+    }
 
     // Close modal with Escape key
     document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && settingsModal.classList.contains('active')) {
+        if (e.key === 'Escape' && settingsModal && settingsModal.classList.contains('active')) {
+            console.log('Escape key pressed!');
             settingsModal.classList.remove('active');
         }
     });
