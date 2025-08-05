@@ -233,4 +233,31 @@ class PomodoroTimer {
 // Initialize the timer when the page loads
 document.addEventListener('DOMContentLoaded', () => {
     new PomodoroTimer();
-}); 
+
+    // Settings modal functionality
+    const hamburgerMenu = document.getElementById('hamburger-menu');
+    const settingsModal = document.getElementById('settings-modal');
+    const closeSettings = document.getElementById('close-settings');
+
+    hamburgerMenu.addEventListener('click', () => {
+        settingsModal.classList.add('active');
+    });
+
+    closeSettings.addEventListener('click', () => {
+        settingsModal.classList.remove('active');
+    });
+
+    // Close modal when clicking outside
+    settingsModal.addEventListener('click', (e) => {
+        if (e.target === settingsModal) {
+            settingsModal.classList.remove('active');
+        }
+    });
+
+    // Close modal with Escape key
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && settingsModal.classList.contains('active')) {
+            settingsModal.classList.remove('active');
+        }
+    });
+});

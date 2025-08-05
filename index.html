@@ -9,30 +9,41 @@
 <body>
     <div class="container">
         <header>
-            <h1>Pomodoro Timer</h1>
-            <p class="subtitle">Stay focused, stay productive</p>
+            <div class="header-content">
+                <div class="header-left">
+                    <h1>Pomodoro Timer</h1>
+                    <p class="subtitle">Stay focused, stay productive</p>
+                </div>
+                <div class="header-right">
+                    <button class="hamburger-menu" id="hamburger-menu">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                </div>
+            </div>
         </header>
-
+        
         <main>
             <div class="timer-container">
                 <div class="timer-display">
                     <div class="time" id="time">25:00</div>
                     <div class="timer-label" id="timer-label">Focus Time</div>
                 </div>
-
+        
                 <div class="timer-controls">
                     <button class="btn btn-primary" id="start-btn">Start</button>
                     <button class="btn btn-secondary" id="pause-btn" disabled>Pause</button>
                     <button class="btn btn-secondary" id="reset-btn">Reset</button>
                 </div>
-
+        
                 <div class="timer-modes">
                     <button class="mode-btn active" data-time="25" data-label="Focus Time">Focus</button>
                     <button class="mode-btn" data-time="5" data-label="Short Break">Short Break</button>
                     <button class="mode-btn" data-time="15" data-label="Long Break">Long Break</button>
                 </div>
             </div>
-
+        
             <div class="session-info">
                 <div class="session-counter">
                     <span>Session: </span>
@@ -44,29 +55,35 @@
                     </div>
                 </div>
             </div>
-
-            <div class="settings">
-                <h3>Settings</h3>
-                <div class="setting-group">
-                    <label for="focus-time">Focus Time (minutes):</label>
-                    <input type="number" id="focus-time" value="25" min="1" max="60">
-                </div>
-                <div class="setting-group">
-                    <label for="short-break">Short Break (minutes):</label>
-                    <input type="number" id="short-break" value="5" min="1" max="30">
-                </div>
-                <div class="setting-group">
-                    <label for="long-break">Long Break (minutes):</label>
-                    <input type="number" id="long-break" value="15" min="1" max="60">
-                </div>
-            </div>
         </main>
 
         <footer>
             <p>Built with ❤️ for productivity</p>
         </footer>
     </div>
+    
+    <!-- Settings Modal -->
+    <div class="settings-modal" id="settings-modal">
+        <div class="settings-content">
+            <div class="settings-header">
+                <h3>Settings</h3>
+                <button class="close-btn" id="close-settings">&times;</button>
+            </div>
+            <div class="setting-group">
+                <label for="focus-time">Focus Time (minutes):</label>
+                <input type="number" id="focus-time" value="25" min="1" max="60">
+            </div>
+            <div class="setting-group">
+                <label for="short-break">Short Break (minutes):</label>
+                <input type="number" id="short-break" value="5" min="1" max="30">
+            </div>
+            <div class="setting-group">
+                <label for="long-break">Long Break (minutes):</label>
+                <input type="number" id="long-break" value="15" min="1" max="60">
+            </div>
+        </div>
+    </div>
 
     <script src="script.js"></script>
 </body>
-</html> 
+</html>
